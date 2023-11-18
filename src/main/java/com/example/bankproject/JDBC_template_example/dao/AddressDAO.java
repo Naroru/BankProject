@@ -28,7 +28,7 @@ public class AddressDAO {
 
     public Optional<Address_rec> getAddress(int id) {
 
-        String sql = "SELECT * FROM Address WHERE id =?";
+        String sql = "SELECT * FROM Addresses WHERE id =?";
 
         return jdbcTemplate.query(sql, addressMapper,id)
                 .stream()
@@ -49,5 +49,25 @@ public class AddressDAO {
                     address.builderNumber(),
                     address.roomNumber());
 
+    }
+
+    public int updateAddress(Address_rec address)
+    {
+        String sql = "UPDATE Addresses SET country = ?, city  = ?, street = ?, building_number = ?, room_number = ?" +
+                " WHERE id = ?";
+
+        return jdbcTemplate.update(sql,
+                address.country(),
+                address.city(),
+                address.street(),
+                address.builderNumber(),
+                address.roomNumber(),
+                address.id());
+    }
+
+    public int deleteAddress(int id) {
+
+       String sql = "DELETE FROM Addresses WHERE id = ?";
+       return jdbcTemplate.update(sql,id);
     }
 }

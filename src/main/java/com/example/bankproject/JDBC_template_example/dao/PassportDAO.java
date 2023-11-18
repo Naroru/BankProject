@@ -36,4 +36,31 @@ public class PassportDAO {
 
     }
 
+    public int addPassport(Passport_rec passport_rec) {
+
+        String sql = "INSERT INTO Passports(series, number, date_of_issue, issued_by)" +
+                "VALUES(?, ?, ?, ?)";
+
+        return jdbcTemplate.update(sql,
+                passport_rec.series(),
+                passport_rec.number(),
+                passport_rec.dateOfIssue(),
+                passport_rec.issuedBy());
+
+    }
+
+    public int updatePassport(Passport_rec newPassport) {
+
+        String sql = "UPDATE Passports SET dateOfIssue = ?, issued_by = ?";
+
+        return jdbcTemplate.update(sql,newPassport.dateOfIssue(), newPassport.issuedBy());
+    }
+
+    public int deletePassport(String seria, String number) {
+
+        String sql = "DELETE FROM Passports WHERE seria = ?, number = ?";
+
+        return jdbcTemplate.update(sql,seria,number);
+
+    }
 }

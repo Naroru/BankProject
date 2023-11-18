@@ -26,7 +26,7 @@ public class AddressController {
     }
 
     @GetMapping("{id}")
-    public Address_rec getAddress(@RequestParam("id") int id)
+    public Address_rec getAddress(@PathVariable("id") int id)
     {
         return addressServices.getAddress(id);
 
@@ -38,5 +38,19 @@ public class AddressController {
         addressServices.addAddress(address_rec);
     }
 
+/*    @PutMapping("{id}")
+    public void updateAddress(@PathVariable("id") int id,
+                              @RequestBody SomeStructure someStruct)*/
 
+    @PutMapping
+    public void updateAddress(@RequestBody Address_rec address)
+    {
+        addressServices.updateAddress(address);
+    }
+
+    @DeleteMapping("{id}")
+public void deleteAddress(@PathVariable("id") int id)
+    {
+        addressServices.deleteAddress(id);
+    }
 }
