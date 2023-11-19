@@ -1,4 +1,4 @@
-package com.example.bankproject.controllers;
+package com.example.bankproject.JDBC_template_example.controllers;
 
 import com.example.bankproject.JDBC_template_example.records.Passport_rec;
 import com.example.bankproject.JDBC_template_example.service.PassportService;
