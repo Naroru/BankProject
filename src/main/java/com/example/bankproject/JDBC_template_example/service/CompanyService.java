@@ -5,7 +5,7 @@ import com.example.bankproject.JDBC_template_example.records.Company_rec;
 import com.example.bankproject.exceptions.ObjectNotFound;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("JDBCCompanyService")
 public class CompanyService {
 
     private final CompanyDAO companyDAO;

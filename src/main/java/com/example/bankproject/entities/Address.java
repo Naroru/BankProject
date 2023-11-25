@@ -32,7 +32,7 @@ public class Address {
     private String buildingNunber;
 
     @Column(name = "room_number")
-    private String roomNumber;
+    private int roomNumber;
 
 }
 

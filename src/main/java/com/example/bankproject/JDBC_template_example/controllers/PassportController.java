@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("api/passports")
+@RestController
+@RequestMapping("api/jdbc/passports")
 public class PassportController {
 
     private final PassportService passportService;
@@ -21,7 +22,7 @@ public class PassportController {
         return passportService.getpassports();
     }
 
-    @GetMapping("api/passports/{seria}/{number}")
+    @GetMapping("{seria}/{number}")
     public Passport_rec getPassport(@PathVariable("seria") String seria, @PathVariable("number") String number)
     {
 
