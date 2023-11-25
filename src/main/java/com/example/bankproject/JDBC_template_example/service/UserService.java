@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+@Service("UserService_JDBC")
 public class UserService {
 
     private final UserDAO userDAO;

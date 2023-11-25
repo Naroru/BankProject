@@ -6,11 +6,10 @@ CREATE TABLE  Users (
     phone varchar (15) NOT NULL UNIQUE,
     snils varchar(11) NOT NULL UNIQUE,
     fk_company INT,
-    passport_series VARCHAR(4),
-    passport_number VARCHAR(6),
+    fk_passport INT,
     fk_address INT,
 
-   UNIQUE (passport_series,passport_number) --связь 1 к  1
+   UNIQUE (fk_passport) --связь 1 к  1. У двух разных пользователей не будет ссылки на 1 паспорт
 );
 --вопрос, правильно ли что fk_company и fk_pasport не not null - потому что при записи юзера данные по паспорту
 --и компании могут быть еще не созданы. Не знаю порядок создания объектов
@@ -26,11 +25,11 @@ CREATE TABLE Companies (
 
 CREATE TABLE Passports
 (
+    id serial PRIMARY KEY,
     series VARCHAR(4),
     number VARCHAR(6),
     date_of_issue DATE NOT NULL ,
-    issued_by TEXT NOT NULL ,
-    PRIMARY KEY (series, number)
+    issued_by TEXT NOT NULL
 );
 --правильно ли, что ключ составной, а не суррогатный
 
@@ -49,6 +48,6 @@ CREATE TABLE  Addresses (
 
 
 ALTER TABLE Users ADD CONSTRAINT fk_company_id FOREIGN KEY (fk_company) REFERENCES Companies(id);
-ALTER TABLE Users ADD CONSTRAINT fk_passport FOREIGN KEY (passport_series,passport_number) REFERENCES Passports(series,number);
+ALTER TABLE Users ADD CONSTRAINT fk_passport FOREIGN KEY (fk_passport) REFERENCES Passports(id);
 ALTER TABLE  Users ADD CONSTRAINT  fk_address FOREIGN KEY (fk_address) REFERENCES Addresses(id);
 ALTER TABLE  Companies ADD CONSTRAINT fk_address FOREIGN KEY (fk_address) REFERENCES Addresses(id)

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+@Service("PassportService_JDBC")
 public class PassportService {
 
     private final PassportDAO passportDAO;
