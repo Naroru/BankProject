@@ -33,4 +33,7 @@ public class Passport {
     @Column(name = "issued_by")
     private String issuedBy;
 
+    @OneToOne(mappedBy = "passport", fetch = FetchType.LAZY)
+    Client client;
+
 }

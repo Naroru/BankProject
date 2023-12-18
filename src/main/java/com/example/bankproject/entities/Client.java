@@ -34,15 +34,15 @@ public class Client {
     @Column(name = "snils")
     private String snils;
 
-    @ManyToOne
+    @ManyToOne (cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "fk_company")
     private Company company;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_passport")
     private Passport passport;
 
-    @OneToOne
+    @ManyToOne (cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "fk_address")
     private Address address;
 

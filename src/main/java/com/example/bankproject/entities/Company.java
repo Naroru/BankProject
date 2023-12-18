@@ -29,7 +29,7 @@ public class Company {
     private String phone;
 
 
-    @ManyToOne
+    @ManyToOne (cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "fk_address")
     private Address address;
 

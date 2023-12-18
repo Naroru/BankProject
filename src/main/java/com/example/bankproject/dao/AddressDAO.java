@@ -29,6 +29,8 @@ public class AddressDAO {
        return entityManager.merge(address); //save/update
     };
 
+
+    @Transactional
     public void delete(int id) {
 
         Query query = entityManager.createQuery("delete from Address" +
