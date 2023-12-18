@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+// Владимир, на этот код можно не обращать внимания
 @Repository
 public class AddressDAO {
 
