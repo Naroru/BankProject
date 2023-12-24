@@ -26,7 +26,7 @@ public class Client {
     private String surname;
 
     @Column(name = "INN")
-    private String INN;
+    private String INN; //todo code style inn
 
     @Column(name = "phone")
     private String phone;
@@ -35,12 +35,12 @@ public class Client {
     private String snils;
 
     @ManyToOne
-    @JoinColumn(name = "fk_company")
+    @JoinColumn(name = "fk_company") //todo обычно company_id
     private Company company;
 
     @OneToOne
     @JoinColumn(name = "fk_passport")
-    private Passport passport;
+    private Passport passport;  //todo OneToMany у клиента могут быть старые неактивные паспорта
 
     @OneToOne
     @JoinColumn(name = "fk_address")

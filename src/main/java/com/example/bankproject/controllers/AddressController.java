@@ -13,14 +13,15 @@ public class AddressController {
 
     private final AddressService addressService;
 
-    @GetMapping("{id}")
+    @GetMapping("{id}")//todo в итоге у тебя ручка будет выглядеть так api/addresses{id}. раставь где нужно /
     public Address getAddress(@PathVariable int id)
     {
         return addressService.getAddress(id);
     }
 
     @PostMapping
-    public void addAddress(@RequestBody Address address)
+    public void addAddress(@RequestBody Address address) //todo обычно фронту в ответ нужно возвращать обект. созданную запись с присвоенным ей ИД
+    //todo в @RequestBody передаешь entity, нужно использовать dto и мапперы. Маппер можно написать самостоятельно либо использовать какие либо либы  например mapstruct или selma
     {
         addressService.addAddress(address);
     }

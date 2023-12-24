@@ -9,5 +9,5 @@ public class ObjectNotFound extends RuntimeException{
     public ObjectNotFound(String message) {
         super(message);
     }
-
+    //todo сделать через GlobalServerExceptionHandler самый идеальный вариант обработки всех исключений в одном классе
 }
