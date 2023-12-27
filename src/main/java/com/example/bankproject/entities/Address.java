@@ -17,7 +17,7 @@ public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private int id;
+    private int id; //todo обычно Long. в реальной жизни int по диапозону может не хватить
 
     @Column
     private String country;

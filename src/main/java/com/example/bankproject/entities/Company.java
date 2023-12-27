@@ -17,7 +17,7 @@ public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int Id;
+    private int Id; //todo id
 
     @Column
     private  String name;

@@ -30,7 +30,7 @@ public class ClientService {
     }
 
     public void addClient(Client client) {
-
+        //todo а если клиент уже существует в БД? Аналогично для остальных сущностей. Этот момент нужно продумать
         clientRepository.save(client);
     }
 

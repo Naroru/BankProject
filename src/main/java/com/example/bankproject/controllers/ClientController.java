@@ -20,7 +20,7 @@ public class ClientController {
     public List<Client> getClients()
     {
         return clientService.getClients();
-    }
+    }   //todo везде в ответах и запросах контролеров и на фронт используй ДТО. в сервисе уже можешь смапить дто в сущность
    @GetMapping("{id}")
     public Client getClient(@PathVariable int id)
    {
