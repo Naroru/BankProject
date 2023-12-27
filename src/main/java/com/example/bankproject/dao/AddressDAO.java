@@ -25,13 +25,13 @@ public class AddressDAO {
         return entityManager.find(Address.class, id);
     }
 
-    @Transactional
+    @Transactional // следует использовать на уровне сервиса
     public Address save(Address address) {
        return entityManager.merge(address); //save/update
     };
 
 
-    @Transactional
+    @Transactional // следует использовать на уровне сервиса
     public void delete(int id) {
 
         Query query = entityManager.createQuery("delete from Address" +
